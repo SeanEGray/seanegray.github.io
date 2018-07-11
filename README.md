@@ -1,0 +1,2 @@
+# seanegray.github.io
+blog
