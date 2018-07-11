@@ -1,1 +1,0 @@
-# seanegray.github.io
