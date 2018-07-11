@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "blog"
+date:   2018-07-11 23:25:29 +0100
+categories: bigyak
+---
+I've had a run of being unable to find information about things on the Internet, so I've had to work them out myself. To save others from reinventing the wheel, I'll blog about these thngs here.
