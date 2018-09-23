@@ -14,8 +14,10 @@ You'll need the following things ready to follow through:
 2. A PowerShell script that you want to run which contains some Azure cmdlets.
 The demo script I'm going to use simply logs a list of virtual machines in the subscription. note that I don't need to do anything inside the script to login to Azure - we'll take care of that in the pipeline.
 
+```
     $VM = Get-AzureRmVm 
     Write-Output $VM
+```
 
 ### Step by step
 The first thing we need to do is create an Azure Service Principal, which is essentially an account in your Azure Active Directory that VSTS/AzDO with use to login to Azure.
