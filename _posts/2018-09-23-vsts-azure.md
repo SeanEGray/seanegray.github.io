@@ -9,7 +9,7 @@ I had a need to run some PowerShell scripts that made use of the [Azure PowerShe
 ### Pre-requisites
 You'll need the following things ready to follow through:
 1. A build or release pipeline. I've set up a blank release pipeline for this post.
-![Blank pipeline](/assets/2019-09-23-emptypipeline.png)
+![Blank pipeline](/assets/2018-09-23-emptypipeline.png)
 
 2. A PowerShell script that you want to run which contains some Azure cmdlets.
 The demo script I'm going to use simply logs a list of virtual machines in the subscription. note that I don't need to do anything inside the script to login to Azure - we'll take care of that in the pipeline.
@@ -20,10 +20,10 @@ The demo script I'm going to use simply logs a list of virtual machines in the s
 ### Step by step
 The first thing we need to do is create an Azure Service Principal, which is essentially an account in your Azure Active Directory that VSTS/AzDO with use to login to Azure.
 Go to the project settings menu (the little cog) and click Services.
-![Settings menu](/assets/2019-09-23-settingsmenu.png)
+![Settings menu](/assets/2018-09-23-settingsmenu.png)
 
 In the Services page, click New Service Connection, and select Azure Resource Manager (you can also select Azure Classic if you need to use the classic cmdlets).
-![New service connection](/assets/2019-09-23-newserviceconnectionmenu.png)
+![New service connection](/assets/2018-09-23-newserviceconnectionmenu.png)
 
 Give the service connection a suitable name, and optionally select a resource group to restrict it to if that's useful for you. Click OK.
 ![Add Azure service connection](/assets/2018-09-23-addazsp.png)
