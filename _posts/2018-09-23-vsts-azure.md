@@ -21,16 +21,22 @@ The demo script I'm going to use simply logs a list of virtual machines in the s
 The first thing we need to do is create an Azure Service Principal, which is essentially an account in your Azure Active Directory that VSTS/AzDO with use to login to Azure.
 Go to the project settings menu (the little cog) and click Services.
 ![Settings menu](/assets/2019-09-23-settingsmenu.png)
+
 In the Services page, click New Service Connection, and select Azure Resource Manager (you can also select Azure Classic if you need to use the classic cmdlets).
 ![New service connection](/assets/2019-09-23-newserviceconnectionmenu.png)
+
 Give the service connection a suitable name, and optionally select a resource group to restrict it to if that's useful for you. Click OK.
 ![Add Azure service connection](/assets/2018-09-23-addazsp.png)
+
 You should now be able to see your new service connection in the list on the left.
 ![Service principal list](/assets/2018-09-23-splist.png)
+
 Back in your pipeline, add a task and select Azure PowerShell from the list. This differs from the PowerShell task in that it lets us make use of the service connection that we've set up to automatically authenticate to Azure. Note that this still runs on the VSTS agent - it is not a Cloud Shell instance.
 ![Add Azure PowerShell task](/assets/2018-09-23-addazps.png)
+
 In the task options, select your new service connection from the Azure Subscription drop-down and your script to run from the Script Path control. You can also specify which version of Azure PowerShell you need to run; I don't need any old behaviour, so I've just gone with Latest installed version.
 ![Azure PowerShell options](/assets/2018-09-23-azpsoptions.png)
+
 Finally, save and run your pipeline. You can then take a look in the logs and see that the script has run succesfully and given us the output we wanted!
 ![VSTS logs](/assets/2018-09-23-log.png)
 
