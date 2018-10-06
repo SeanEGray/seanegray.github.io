@@ -2,7 +2,7 @@
 layout: post
 title:  "hacktoberfest: part one"
 date:   2018-10-04 20:04:00 +0100
-categories: [bigyak, opensource, gthub, markdown, hacktoberfest]
+categories: [bigyak, opensource, github, markdown, hacktoberfest]
 ---
 I want to contribute more to open source projects; we all benefit from open source software these days, and I think that the community effort that goes into help each other is amazing. I'd like to give something back to that.
 
