@@ -8,7 +8,7 @@ BOOM! Five commits!
 
 Last commit was an update to the PowerShell Core documentation; assuming it gets merged and released, when you type
 ```pwsh
-   Get-Help about_automaticVariables
+   Get-Help about_Automatic_Variables
 ```
 you'll see actual words that I wrote in a coffee shop, telling you about some of the new built-in variables that PowerShell Core has, indicating what operating system it's running on.
 
