@@ -10,7 +10,7 @@ I was stuck. I didn't fancy going to the hassle of setting up a Hyper-V VM, and 
 
 Fire up a command prompt and:
 ```Batchfile
-    docker run -it ubuntu bash
+docker run -it ubuntu bash
 ```
 BOOM! A few seconds later I'm at a bash prompt where I can easily install and run whatever tools I want.
 
