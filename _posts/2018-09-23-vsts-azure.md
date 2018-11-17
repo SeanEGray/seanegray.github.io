@@ -14,7 +14,7 @@ You'll need the following things ready to follow through:
 2. A PowerShell script that you want to run which contains some Azure cmdlets.
 The demo script I'm going to use simply logs a list of virtual machines in the subscription. note that I don't need to do anything inside the script to login to Azure - we'll take care of that in the pipeline.
 
-```pwsh
+```PowerShell
     $VM = Get-AzureRmVm 
     Write-Output $VM
 ```
