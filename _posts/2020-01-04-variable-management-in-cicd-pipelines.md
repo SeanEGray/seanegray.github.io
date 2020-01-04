@@ -44,12 +44,12 @@ Now that all of our variables are floating around as environment variables, we j
 
 The best option will depend on the specific task that's consuming the variables.
 
-##### Pass variables into tasks as parameters
+#### Pass variables into tasks as parameters
 This is fairly straightforward. Just use the Azure DevOps variable syntax to pass into tasks. For example, to pass our ENV_dbServerName variable into a tasks, we reference it in the task inputs as $(ENV_dbServerName).
 
 ![Pass parameters](/assets/2020-01-04-pass-parameters.png)
 
-##### Use a token replacement task to write variables directly into files
+#### Use a token replacement task to write variables directly into files
 Sometimes it's not possible to pass parameters into a task, so in these instances, I use a task to replace tokens directly within a file. To do this, I put a string that looks like #{ENV_dbServerName}# in the file, in the place where I want my variable to be inserted.
 
 ![Token example](/assets/2020-01-04-token-example.png)
