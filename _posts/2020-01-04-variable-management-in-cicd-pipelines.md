@@ -7,7 +7,7 @@ categories: [bigyak, azure, devops, cicd]
 I promised some friends that I'd blog about variable and secret management in CI/CD pipelines. I'll cover variables in this post and secrets in the next one (which hopefully won't take me more than a week or two to get round to writing).
 
 ### What's a variable?
-One of my goals when building CI/CD pipelines is that the same build/test/deployment code should be able to deploy to multiple environments. This isn't always possible, but it's a good thing to aim for. In order to do this, we need environment-agnostic code that we can plug environment-specific settings (e.g. a server name or a VM size setting, which may be smaller for dev environments than for production) into, in order to deploy to the different environments. In the context of this blog post, these settings are variables.
+One of my goals when building CI/CD pipelines is that the same build/test/deployment code should be able to deploy to multiple environments. This isn't always possible, but it's a good thing to aim for. In order to do this, we need environment-agnostic code that we can plug environment-specific settings (e.g. a server name or a VM size setting, which may be smaller for development environments than for production) into, in order to deploy to the different environments. In the context of this blog post, these settings are variables.
 
 The examples I give here are using [Azure DevOps](https://dev.azure.com), but the concepts should be transferable to other tools. Screenshots are taken from the graphical interface because if you can write your pipelines as YAML, you're probably comfortable with the graphical interface, too; but the reverse may not be true.
 
@@ -30,7 +30,7 @@ To load my variables from my YAML files, I use the Load YAML Variables task prov
 
 ![Variables helpers](/assets/2020-01-04-variables-helpers.png)
 
-After adding that, I had to save and reload my pipeline, but was then able to add Load Yaml Variables task. This needs two settings - the path to the variable file you want to load, and a prefix which will be attached to your variables names. This means that if your prefix is 'ENV', a variable that was calling dbServerName in your variable file will create an environment variable called ENV_dbServerName.
+After adding that, I had to save and reload my pipeline, but was then able to add Load Yaml Variables task. This needs two settings - the path to the variable file you want to load, and a prefix which will be attached to your variable names. This means that if your prefix is 'ENV', a variable that was calling dbServerName in your variable file will create an environment variable called ENV_dbServerName.
 
 I create two tasks like this - one for my environment-agnostic variable file, and one for my environment-specific variable file.
 
@@ -50,7 +50,11 @@ This is fairly straightforward. Just use the Azure DevOps variable syntax to pas
 ![Pass parameters](/assets/2020-01-04-pass-parameters.png)
 
 ##### Use a token replacement task to write variables directly into files
-Sometimes it's not possible to pass parameters into a task, so in these instances, I use a task to replace tokens directly within a file. To do this, I put a string that looks like #{ENV_dbServerName}# in the file, in the place where I want my variable to be inserted. I then add the Replace Tokens task by Guillaume Rouchon to my pipeline from the marketplace. This incredibly useful task looks for the #{VARIABLENAME}# pattern within files and replaces it with the contents of the variable with that name. There are a lot of options that you can configure in this task but the only ones that you need to are the ones pointing to the files that you want to drop your variables into.
+Sometimes it's not possible to pass parameters into a task, so in these instances, I use a task to replace tokens directly within a file. To do this, I put a string that looks like #{ENV_dbServerName}# in the file, in the place where I want my variable to be inserted.
+
+![Token example](/assets/2020-01-04-token-example.png)
+
+I then add the Replace Tokens task by Guillaume Rouchon to my pipeline from the marketplace. This incredibly useful task looks for the #{VARIABLENAME}# pattern within files and replaces it with the contents of the variable with that name. There are a lot of options that you can configure in this task but the only ones that you need to are the ones pointing to the files that you want to drop your variables into.
 
 ![Replace tokens](/assets/2020-01-04-replace-tokens.png)
 
